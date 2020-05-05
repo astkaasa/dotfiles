@@ -51,6 +51,8 @@
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   simple = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+  h = log --pretty=format:\"%C(yellow)%h%Creset %ad %s %C(red)[%an]%Creset\" --graph --date=short -10
+  hist = log --pretty=format:\"%C(yellow)%h%Creset %ad %s %C(red)[%an]%Creset\" --graph --date=short
 
   # pull
   pl = pull                         # pull
@@ -125,3 +127,6 @@
   enabled = true
 [include]
   path = .gitconfig.user
+[user]
+  name = haoxuan
+  email = guohaoxuan@gmail.com

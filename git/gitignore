@@ -45,3 +45,17 @@ Session.vim
 # SASS
 # ----------------------------------------------------------------------------------------------
 .sass-cache
+
+# Ruby
+.ruby-version
+
+# IntelliJ
+.idea
+*.iml
+
+# vscode
+.vscode
+.settings
+.project
+target
+.classpath
