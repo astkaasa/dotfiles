@@ -1,0 +1,40 @@
+onboarding = false
+
+[theme]
+name = "catppuccin"
+
+auto_switch = false
+[keys]
+new_tab = "cmd+t"
+new_workspace = "cmd+n"
+switch_tab = "cmd+1..9"
+switch_workspace = "cmd+shift+1..9"
+previous_tab = "cmd+["
+next_tab = "cmd+]"
+split_vertical = "cmd+d"
+split_horizontal = "cmd+shift+d"
+zoom = "cmd+shift+enter"
+close_pane = "cmd+w"
+toggle_sidebar = "cmd+b"
+workspace_picker = "cmd+p"
+reload_config = "cmd+shift+r"
+rename_tab = "cmd+e"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+agent_panel_scope = "all"
+prompt_new_tab_name = false
+pane_gaps = false
+
+agent_panel_sort = "spaces"
+[ui.toast]
+delivery = "herdr"
+
+[experimental]
+pane_history = true
+switch_ascii_input_source_in_prefix = true
+
+[[keys.command]]
+key = "cmd+u"
+type = "shell"
+command = "herdr plugin action invoke tokscale.dashboard.open"

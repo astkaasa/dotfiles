@@ -1,0 +1,34 @@
+[color]
+  ui = auto
+
+[alias]
+  b = branch -v
+  ca = commit -am
+  h = log --pretty=format:\"%C(yellow)%h%Creset %ad %s %C(red)[%an]%Creset\" --graph --date=short -10
+  hist = log --pretty=format:\"%C(yellow)%h%Creset %ad %s %C(red)[%an]%Creset\" --graph --date=short
+  s = status
+  unstage = restore --staged
+
+[core]
+  autocrlf = false
+  editor = vim
+  excludesfile = ~/.gitignore
+
+[diff]
+  algorithm = histogram
+  mnemonicprefix = true
+
+[init]
+  defaultBranch = main
+
+[pull]
+  rebase = false
+
+[push]
+  default = simple
+
+[rerere]
+  enabled = true
+
+[include]
+  path = ~/.gitconfig.user

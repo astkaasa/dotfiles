@@ -1,0 +1,57 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+
+[font]
+size = 13
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 100000
+
+[keyboard]
+bindings = [
+  { key = "1", mods = "Command", action = "ReceiveChar" },
+  { key = "2", mods = "Command", action = "ReceiveChar" },
+  { key = "3", mods = "Command", action = "ReceiveChar" },
+  { key = "4", mods = "Command", action = "ReceiveChar" },
+  { key = "5", mods = "Command", action = "ReceiveChar" },
+  { key = "6", mods = "Command", action = "ReceiveChar" },
+  { key = "7", mods = "Command", action = "ReceiveChar" },
+  { key = "8", mods = "Command", action = "ReceiveChar" },
+  { key = "9", mods = "Command", action = "ReceiveChar" },
+  { key = "1", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "2", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "3", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "4", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "5", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "6", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "7", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "8", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "9", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "!", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "@", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "#", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "$", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "%", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "^", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "&", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "*", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "(", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "[", mods = "Command", action = "ReceiveChar" },
+  { key = "]", mods = "Command", action = "ReceiveChar" },
+  { key = "B", mods = "Command", action = "ReceiveChar" },
+  { key = "P", mods = "Command", action = "ReceiveChar" },
+  { key = "E", mods = "Command", action = "ReceiveChar" },
+  { key = "N", mods = "Command", action = "ReceiveChar" },
+  { key = "N", mods = "Command|Shift", action = "CreateNewWindow" },
+  { key = "R", mods = "Command|Shift", action = "ReceiveChar" },
+  { key = "T", mods = "Command", action = "ReceiveChar" },
+  { key = "W", mods = "Command", action = "ReceiveChar" },
+  { key = "W", mods = "Command|Shift", action = "Quit" },
+]

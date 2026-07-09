@@ -1,0 +1,2 @@
+set show-all-if-ambiguous on
+"\C-r": reverse-search-history
