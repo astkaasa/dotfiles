@@ -18,6 +18,9 @@
   algorithm = histogram
   mnemonicprefix = true
 
+[fetch]
+  prune = true
+
 [init]
   defaultBranch = main
 
@@ -29,6 +32,9 @@
 
 [rerere]
   enabled = true
+
+[user]
+  useConfigOnly = true
 
 [include]
   path = ~/.gitconfig.user

@@ -4,15 +4,15 @@ TERM = "xterm-256color"
 [window]
 decorations = "None"
 startup_mode = "Maximized"
+dynamic_padding = true
+option_as_alt = "OnlyLeft"
 
 [font]
+normal = { family = "Cascadia Code NF", style = "Regular" }
 size = 13
 
 [selection]
 save_to_clipboard = true
-
-[scrolling]
-history = 100000
 
 [keyboard]
 bindings = [

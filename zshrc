@@ -109,13 +109,13 @@ source_first_readable() {
   return 1
 }
 
+if [ -r "$HOME/.zshrc.local" ]; then
+  . "$HOME/.zshrc.local"
+fi
+
 # Optional: use zsh-syntax-highlighting when it is installed locally.
 source_first_readable \
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
   /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
   /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ||
   true
-
-if [ -r "$HOME/.zshrc.local" ]; then
-  . "$HOME/.zshrc.local"
-fi

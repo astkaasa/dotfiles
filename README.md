@@ -23,6 +23,29 @@ and harmless on other systems.
 - `config/alacritty/alacritty.toml`: Alacritty terminal preferences.
 - `config/herdr/config.toml`: Herdr terminal workspace preferences.
 
+## Requirements
+
+The installer only creates symlinks; it does not install applications, packages,
+fonts, or Herdr plugins.
+
+- Zsh, Vim, and Git.
+- Alacritty and Herdr for the managed terminal configuration.
+- Cascadia Code NF, selected explicitly by the Alacritty configuration.
+- `zsh-syntax-highlighting` for optional interactive command highlighting.
+- The Tokscale Dashboard Herdr plugin for the `Cmd-U` binding.
+
+On macOS, install the optional Zsh highlighter with:
+
+```sh
+brew install zsh-syntax-highlighting
+```
+
+Install the Herdr plugin with:
+
+```sh
+herdr plugin install astkaasa/herdr-tokscale-dashboard
+```
+
 ## Install
 
 Run:

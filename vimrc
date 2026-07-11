@@ -48,10 +48,16 @@ if exists('&belloff')
   set belloff=all
 endif
 
-" Avoid project-local temporary files and file-controlled settings.
-set noswapfile
+" Avoid project-local backup files and file-controlled settings.
 set nobackup
 set nomodeline
+
+" Keep swap recovery files outside project directories.
+let s:swap_dir = expand('~/.vim/swap')
+silent! call mkdir(s:swap_dir, 'p')
+if isdirectory(s:swap_dir)
+  execute 'set directory^=' . fnameescape(s:swap_dir . '//')
+endif
 
 " Keep undo history outside project directories.
 if has('persistent_undo')
