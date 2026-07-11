@@ -28,8 +28,48 @@ link_file() {
   printf 'link: %s -> %s\n' "$dst" "$src"
 }
 
-link_file "$repo_dir/zprofile" "$HOME/.zprofile"
-link_file "$repo_dir/zshrc" "$HOME/.zshrc"
+ensure_source() {
+  entry_file=$1
+  managed_rel=$2
+  source_line=". \"\$HOME/$managed_rel\""
+
+  if [ -L "$entry_file" ]; then
+    mkdir -p "$backup_dir"
+    mv "$entry_file" "$backup_dir/"
+    printf 'backup: %s -> %s/\n' "$entry_file" "$backup_dir"
+  fi
+
+  if [ ! -e "$entry_file" ]; then
+    printf '%s\n' "$source_line" >"$entry_file"
+    printf 'create: %s\n' "$entry_file"
+    return
+  fi
+
+  if grep -F "\$HOME/$managed_rel" "$entry_file" >/dev/null 2>&1; then
+    printf 'ok: %s sources %s\n' "$entry_file" "$HOME/$managed_rel"
+    return
+  fi
+
+  mkdir -p "$backup_dir"
+  cp -p "$entry_file" "$backup_dir/"
+  printf 'backup: %s -> %s/\n' "$entry_file" "$backup_dir"
+
+  entry_tmp="$entry_file.dotfiles.$$"
+  {
+    printf '%s\n\n' "$source_line"
+    cat "$entry_file"
+  } >"$entry_tmp"
+  cat "$entry_tmp" >"$entry_file"
+  rm -f "$entry_tmp"
+  printf 'update: %s now sources %s\n' "$entry_file" "$HOME/$managed_rel"
+}
+
+mkdir -p "$HOME/.config/zsh"
+link_file "$repo_dir/zprofile" "$HOME/.config/zsh/zprofile"
+link_file "$repo_dir/zshrc" "$HOME/.config/zsh/zshrc"
+ensure_source "$HOME/.zprofile" ".config/zsh/zprofile"
+ensure_source "$HOME/.zshrc" ".config/zsh/zshrc"
+
 link_file "$repo_dir/vimrc" "$HOME/.vimrc"
 link_file "$repo_dir/gitconfig" "$HOME/.gitconfig"
 link_file "$repo_dir/gitignore" "$HOME/.gitignore"

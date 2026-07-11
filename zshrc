@@ -1,36 +1,11 @@
 # Interactive shell configuration without a shell framework.
 
-path_prepend() {
-  [ -d "$1" ] || return
-  case ":$PATH:" in
-    *":$1:"*) ;;
-    *) PATH="$1:$PATH" ;;
-  esac
-}
-
-path_append() {
-  [ -d "$1" ] || return
-  case ":$PATH:" in
-    *":$1:"*) ;;
-    *) PATH="$PATH:$1" ;;
-  esac
-}
-
-path_prepend "/opt/homebrew/bin"
-path_prepend "/opt/homebrew/sbin"
-path_prepend "/opt/homebrew/opt/libxml2/bin"
-path_prepend "/opt/homebrew/opt/openjdk/bin"
-path_prepend "$HOME/.local/bin"
-if [ -d "${BUN_INSTALL:-$HOME/.bun}" ]; then
-  export BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}"
-  path_prepend "$BUN_INSTALL/bin"
-fi
-path_prepend "$HOME/.opencode/bin"
-path_append "/Applications/Obsidian.app/Contents/MacOS"
-export PATH
-
-[ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-[ -r "$HOME/.bun/_bun" ] && . "$HOME/.bun/_bun"
+typeset -gU path PATH
+path=(
+  "$HOME"/.local/bin(N)
+  /opt/homebrew/{,s}bin(N)
+  $path
+)
 
 autoload -Uz compinit
 compinit -i
@@ -108,10 +83,6 @@ source_first_readable() {
 
   return 1
 }
-
-if [ -r "$HOME/.zshrc.local" ]; then
-  . "$HOME/.zshrc.local"
-fi
 
 # Optional: use zsh-syntax-highlighting when it is installed locally.
 source_first_readable \

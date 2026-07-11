@@ -14,8 +14,8 @@ and harmless on other systems.
 
 ## Contents
 
-- `zprofile` and `zshrc`: framework-free shell environment, prompt, history,
-  completion, and aliases.
+- `zprofile` and `zshrc`: shared, framework-free shell environment, prompt,
+  history, completion, and aliases.
 - `vimrc`: plain Vim configuration without plugins.
 - `gitconfig` and `gitignore`: global Git defaults and ignores.
 - `inputrc` and `editrc`: command-line editing defaults.
@@ -54,8 +54,31 @@ Run:
 ./install.sh
 ```
 
-The installer creates symlinks in `$HOME`. Existing files are moved to a
-timestamped backup directory under `~/.dotfiles.backup/`.
+The installer links managed files into `$HOME`. Existing files replaced by
+links are moved to a timestamped backup directory under `~/.dotfiles.backup/`.
+
+The repository's shared `zprofile` and `zshrc` are linked under the same names
+in `~/.config/zsh/`. The installer keeps `~/.zprofile` and `~/.zshrc` as
+regular, machine-owned files containing a single source line. This lets package
+installers append their own setup without modifying the repository through a
+symlink. Existing regular files are preserved, and the source line is prepended
+when missing.
+
+## Machine-specific shell configuration
+
+Shared shell settings belong in the repository's `zprofile` and `zshrc`. Keep
+their PATH configuration limited to stable defaults such as Homebrew and
+`~/.local/bin`; the shared `zshrc` uses Zsh's tied `path`/`PATH` parameters to
+ignore missing directories and remove duplicates.
+
+Keep machine-specific environment variables in the regular `~/.zprofile` and
+interactive settings or paths in the regular `~/.zshrc`. Package-managed
+snippets should remain in the standard form written by their installers.
+Neither machine entry file is managed as a repository symlink.
+
+Do not add a project virtual environment such as `.venv/bin` to the global
+`PATH`. Activate it from the project, or use a project-scoped environment tool
+such as direnv.
 
 Keep machine-specific Git identity and credential helpers in
 `~/.gitconfig.user`, for example:
