@@ -4,6 +4,7 @@
 [alias]
   b = branch -v
   ca = commit -am
+  co = checkout
   h = log --pretty=format:\"%C(yellow)%h%Creset %ad %s %C(red)[%an]%Creset\" --graph --date=short -10
   hist = log --pretty=format:\"%C(yellow)%h%Creset %ad %s %C(red)[%an]%Creset\" --graph --date=short
   s = status

@@ -11,6 +11,7 @@ set number
 set hidden
 set backspace=indent,eol,start
 set history=1000
+set autoread
 
 " Indentation.
 set expandtab
