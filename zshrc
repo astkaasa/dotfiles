@@ -40,6 +40,11 @@ bindkey '^[OA' up-line-or-beginning-search
 bindkey '^[OB' down-line-or-beginning-search
 bindkey '^R' history-incremental-search-backward
 
+case "$OSTYPE" in
+  darwin*) alias ls='ls -G' ;;
+  linux*) alias ls='ls --color=auto' ;;
+esac
+
 alias ll='ls -lah'
 alias la='ls -A'
 alias grep='grep --color=auto'
